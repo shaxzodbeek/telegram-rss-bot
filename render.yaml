@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telegram-rss-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: CHAT_USERNAME
+        sync: false
+    autoDeploy: true
+    healthCheckPath: /health
